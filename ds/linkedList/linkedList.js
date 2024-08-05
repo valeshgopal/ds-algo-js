@@ -104,6 +104,22 @@ class LinkedList {
         this.removeFrom(index)
     }
 
+    search(value) {
+        if (this.isEmpty()) {
+            return -1
+        }
+        let i = 0
+        let curr = this.head
+        while (curr) {
+            if (curr.value === value) {
+                return i
+            }
+            curr = curr.next
+            i++
+        }
+        return -1
+    }
+
     print() {
         let curr = this.head
         let result = ''
@@ -138,12 +154,8 @@ linkedList.insert(40, 2)
 console.log(linkedList.print())
 
 linkedList.insert(50, 2)
-console.log(linkedList.print())
 
-linkedList.removeValue(40)
 console.log(linkedList.print())
 console.log(linkedList.size)
 
-linkedList.removeValue(10)
-console.log(linkedList.print())
-console.log(linkedList.size)
+console.log(linkedList.search(80))
